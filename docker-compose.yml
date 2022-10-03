@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  worker:
+    container_name: worker
+    build: 
+      context: .
+      dockerfile: docker/Dockerfile.dev
+    env_file:
+      - .env.dev
+    ports:
+      - 3001:3001
+    volumes:
+      - ./:/app
+    depends_on:
+      - database
+
+  database:
+    image: postgres:14-alpine
+    container_name: database
+    ports: 
+      - 5555:5432
+    environment:
+      TZ: "Asia/Tokyo"
+      POSTGRES_DB: database
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
+
