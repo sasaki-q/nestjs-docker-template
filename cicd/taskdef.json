@@ -1,0 +1,56 @@
+{
+    "executionRoleArn": "arn:aws:iam::189484286514:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+        {
+            "dnsSearchDomains": null,
+            "environmentFiles": null,
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/demo-log-group",
+                    "awslogs-region": "ap-northeast-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            },
+            "entryPoint": null,
+            "portMappings": [
+                {
+                    "hostPort": 8080,
+                    "protocol": "tcp",
+                    "containerPort": 8080
+                }
+            ],
+            "environment": [
+                {
+                    "name": "FROM_TASK",
+                    "value": "env from task definition"
+                }
+            ],
+            "name": "demo-container",
+            "image": "<IMAGE1_NAME>"
+        }
+    ],
+    "placementConstraints": [],
+    "memory": "512",
+    "taskRoleArn": "arn:aws:iam::189484286514:role/ecsTaskExecutionRole",
+    "compatibilities": [
+        "FARGATE"
+    ],
+    "family": "demo-family",
+    "networkMode": "awsvpc",
+    "runtimePlatform": {
+        "operatingSystemFamily": "LINUX",
+        "cpuArchitecture": null
+    },
+    "cpu": "256",
+    "status": "ACTIVE",
+    "inferenceAccelerators": null,
+    "proxyConfiguration": null,
+    "volumes": [],
+    "tags": [
+        {
+            "key": "Name",
+            "value": "demo-task"
+        }
+    ]
+}

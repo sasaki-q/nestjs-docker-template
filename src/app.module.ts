@@ -7,13 +7,13 @@ import { TypeOrmConfigService } from '@/config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-    }),
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      useClass: TypeOrmConfigService,
-    })
+    // ConfigModule.forRoot({
+    //   isGlobal: true,
+    // }),
+    // TypeOrmModule.forRootAsync({
+    //   imports: [ConfigModule],
+    //   useClass: TypeOrmConfigService,
+    // })
   ],
   controllers: [AppController],
   providers: [AppService],
